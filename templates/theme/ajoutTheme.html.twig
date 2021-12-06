@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Ajout Theme{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    <h1 class="text-primary text-center m-2 text-white">Ajouter un fichier</h1>
+    <div class="row justify-content-center">
+        <div class="col-6 bg-white p-4 m-0 text-primary">
+            {{form_start(form)}}
+            <div class="form-group">
+                {{ form_label(form.nom, 'Sélectionnez un fichier', {'label_attr': {'class': 'fw-bold m-1'}}) }}
+                {{ form_widget(form.nom, {}}) }}
+            </div>
+            <div class="form-group mx-auto text-center">
+                {{ form_widget(form.envoyer, { 'label': "Ajouter ce Theme", 'attr': {'class': 'btn fw-bold bg-primary text-white mx-auto text-center m-4'}}) }}
+                
+            </div>
+                {{form_end(form)}}
+        </div>
+    </div>
+</div>
+{% endblock %}

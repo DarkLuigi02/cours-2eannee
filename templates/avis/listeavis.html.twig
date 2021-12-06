@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Contact{% endblock %}
+
+{% block body %}
+<h1 class="text-secondary text-center">Liste des Conctact de Share</h1>
+
+<div class="table-responsive">
+    <table class="table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Message</th>
+                <th scope="col">Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for avis in Avis %}
+                <tr class="{{cycle(['table-primary','table-secondary'],loop.index0) }}"">
+                    <td>{{avis.nom | capitalize }}</td>
+                    <td>{{avis.message}}</td>
+                    <td>{{avis.note}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Theme{% endblock %}
+
+{% block body %}
+<h1 class="text-secondary text-center">Liste des Theme de Share</h1>
+
+<div class="table-responsive">
+    <table class="table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for theme in themes %}
+                <tr class="{{cycle(['table-primary','table-secondary'],loop.index0) }}">
+                    <td>{{theme.nom | capitalize }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

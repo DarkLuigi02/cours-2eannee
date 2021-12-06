@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}Profil{% endblock %}
+
+{% block body %}
+
+<h1>Mon Profil</h1>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<div class="row">
+    <div class="col-4"><td>Email : {{app.user.email}}  </td> <br>
+    <td>Nom : {{app.user.utilisateur.nom}}</td> <br>
+    <td>Prenom : {{app.user.utilisateur.prenom}}</td> <br>
+    </div>
+    {% if app.user.photo is not empty %}
+        <div class="col">Photo : <img class style="width: 7%" src = "uploads/image/{{app.user.photo}}" ></src></div>
+    {% else %}
+        <div class="col">Photo : <img class style="width: 7%" src = "uploads/image/default.jpg" ></src></div>
+    {% endif %}
+  </div>
+
+<td><a class="nav-link active" href="{{path("inscriptionC")}}">Completer l'inscription </a> </td>
+<td><a class="nav-link active" href="{{path("ajoutfichier")}}">Envoyer un fichier </a> </td>
+
+
+{% endif %}
+
+{% endblock %}
